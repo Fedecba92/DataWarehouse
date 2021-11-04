@@ -1,2 +1,72 @@
-@import "./utilities/variables";
-@import "./Base/base";
+@import "./abstracts/variables";
+@import "./base/base";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Open-sans", sans-serif;
+}
+
+label {
+  display: block;
+}
+
+button {
+  width: 131px;
+  height: 42px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+  }
+}
+
+.button-primary {
+  background-color: $primary-color;
+  color: $just-white;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $tercerary-color;
+}
+
+.login-container {
+  display: flex;
+  width: 90%;
+  height: 80%;
+  background-color: $just-white;
+
+  .login-form {
+    width: 50%;
+    height: 100%;
+    padding: 60px calc(25% - 180px);
+
+    &__title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .login-image {
+    width: 50%;
+    height: 100%;
+    background-color: $primary-color;
+  }
+}
