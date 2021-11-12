@@ -11,14 +11,15 @@ html {
   font-family: "Open-sans", sans-serif;
 }
 
-label {
-  display: block;
+input {
+  outline: none;
 }
 
 button {
-  width: 131px;
+  width: 100%;
   height: 42px;
   border: none;
+  border-radius: 3px;
   background: none;
   cursor: pointer;
   font-size: 1rem;
@@ -36,6 +37,21 @@ button {
 .button-primary {
   background-color: $primary-color;
   color: $just-white;
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+
+  &::after {
+    content: "*";
+    color: $primary-color;
+    font-weight: bold;
+    margin-left: 3px;
+  }
 }
 
 .login {
@@ -50,23 +66,74 @@ button {
 .login-container {
   display: flex;
   width: 90%;
+  max-width: 1240px;
   height: 80%;
   background-color: $just-white;
 
   .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 50%;
     height: 100%;
     padding: 60px calc(25% - 180px);
+    position: relative;
 
     &__title {
       font-size: 2rem;
       font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    &__paragraph {
+      margin-bottom: 30px;
+    }
+
+    small {
+      color: $grey-text-color;
+      position: absolute;
+      bottom: 25px;
+      left: calc(50% - 113.72px);
     }
   }
 
   .login-image {
+    display: flex;
+    justify-content: center;
     width: 50%;
     height: 100%;
     background-color: $primary-color;
+    color: $just-white;
+    position: relative;
+    text-align: center;
+
+    &__text-box {
+      position: absolute;
+      bottom: 60px;
+      max-width: 300px;
+
+      h2 {
+        font-size: 2rem;
+        margin: 15px 0;
+      }
+      p {
+        line-height: 1.8rem;
+      }
+    }
+  }
+}
+
+.form-control {
+  input {
+    height: 2.6rem;
+    width: 100%;
+    border: 1px solid $grey-color;
+    border-radius: 3px;
+    margin: 0 0 15px 0;
+    padding-left: 10px;
+
+    &:focus {
+      border: 1px solid $tercerary-color;
+    }
   }
 }
