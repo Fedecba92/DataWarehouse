@@ -95,7 +95,7 @@ header {
 @media screen and (min-width: 800px) {
   header {
     display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    grid-template-columns: 1fr 1fr;
     height: 4rem;
 
     .nav-toggle-label {
