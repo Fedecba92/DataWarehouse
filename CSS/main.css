@@ -233,6 +233,42 @@ header {
     border-radius: 50%;
     margin: 4px; }
 
+.contact__add {
+  display: flex;
+  flex-direction: column; }
+  .contact__add .contact__tittle--container {
+    background-color: #1d72c2;
+    width: 100%;
+    height: 7rem; }
+    .contact__add .contact__tittle--container .contact__tittle {
+      color: #ffffff;
+      margin: 1rem; }
+  .contact__add .contact__form {
+    display: flex;
+    justify-content: center; }
+    .contact__add .contact__form .contact__mandatory--data {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      border: 2px solid #0683f9;
+      border-radius: 4px;
+      height: 8rem;
+      transform: translateY(-40px);
+      background-color: #ffffff;
+      width: 90%; }
+      .contact__add .contact__form .contact__mandatory--data .avatar {
+        vertical-align: middle;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 4px; }
+      .contact__add .contact__form .contact__mandatory--data input {
+        border: 1px solid #1d72c2;
+        border-radius: 4px; }
+        .contact__add .contact__form .contact__mandatory--data input ::placeholder {
+          font-size: 2px; }
+
 * {
   box-sizing: border-box;
   margin: 0;
