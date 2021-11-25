@@ -125,37 +125,107 @@
        
 </section>
 
-<section class="contact__add">
-    <article class="contact__tittle--container">
-        <h3 class="contact__tittle">Nuevo contacto</h3>
-    </article>
-    <article class="contact__form">
-        <div class="contact__mandatory--data">
-            <img src="./assets/images/img_avatar.png" alt="Avatar" class="avatar">
-            <div class="form-control">
-                
-                <label for="">Nombre:</label>
-                <input class="" type="text" >
+<section class="contact-add">
+
+    <div class="contact-add__container">
+        
+        <article class="contact__tittle--container">
+            <h3 class="contact__tittle">Nuevo contacto</h3>
+        </article>
+        <form class="contact__form">
+            <div class="contact__mandatory--data">
+                <div class="avatar-container">
+                    <img src="./assets/images/img_avatar.png" alt="Avatar">
+                    <div class="camera-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+                    </div>
+                </div>
+               
+
+                <div class="form-control">
+                    
+                    <label for="">Nombre:</label>
+                    <input class="" type="text" >
+                </div>
+                <div class="form-control">
+                    <label for="">Apellido:</label>
+                    <input type="text" >
+                </div>
+                <div class="form-control">
+                    <label for="">Cargo:</label>
+                    <input type="text" >
+                </div>
+                <div class="form-control">
+                    <label for="">Email:</label>
+                    <input type="text" >
+                </div>
+                <div class="form-control">
+                    <label for="">Compañia:</label>
+                    <input type="text" placeholder="Ingresar el nombre de compañía">
+                </div>
             </div>
-            <div class="form-control">
-                <label for="">Apellido:</label>
-                <input type="text" >
+
+            <div class="form-group">
+
+                <div class="form-control">
+                    <label for="region">Región:</label>
+                    <select name="region" id="region" class="select-input">
+                        <option selected disabled value="">Seleccionar región</option>
+                        <option value="">África</option>
+                        <option value="">América del Norte</option>
+                        <option value="">América del Sur</option>
+                        <option value="">Asia</option>
+                        <option value="">Europa</option>
+                        <option value="">Medio Oriente</option>
+                        <option value="">Oceanía</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="country">País</label>
+                    <select name="country" id="country" class="select-input">
+                        
+                        <option value="">África</option>
+                        <option value="">América del Norte</option>
+                        <option value="">América del Sur</option>
+                        <option value="">Asia</option>
+                        <option value="">Europa</option>
+                        <option value="">Medio Oriente</option>
+                        <option value="">Oceanía</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="region">Región:</label>
+                    <select name="region" id="region" class="select-input">
+                        <option value="">África</option>
+                        <option value="">América del Norte</option>
+                        <option value="">América del Sur</option>
+                        <option value="">Asia</option>
+                        <option value="">Europa</option>
+                        <option value="">Medio Oriente</option>
+                        <option value="">Oceanía</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="">Compañia:</label>
+                    <input type="text" placeholder="Ingresar el nombre de compañía">
+                </div>
+
+                <div class="form-control">
+                    <label for="">Compañia:</label>
+                    <input type="text" placeholder="Ingresar el nombre de compañía">
+                </div>
+
+
             </div>
-            <div class="form-control">
-                <label for="">Cargo:</label>
-                <input type="text" >
+
+            <div class="action-container">
+                <button class="button-terciary">Cancelar</button>
+                <button class="button-primary">Guardar contacto</button>
             </div>
-            <div class="form-control">
-                <label for="">Email:</label>
-                <input type="text" >
-            </div>
-            <div class="form-control">
-                <label for="">Compañia:</label>
-                <input type="text" placeholder="Ingrese el nombre de la compañía">
-            </div>
-        </div>
-    </article>
-    
+        </form>
+
+    </div>
 
 </section>
 

@@ -19,6 +19,13 @@ input {
   border: 1px solid $grey-color;
 }
 
+.select-input {
+  width: 190px;
+  height: 35.5px;
+  border: 1px solid $grey-border-color;
+  border-radius: 3px;
+}
+
 button {
   width: 100%;
   height: 42px;
@@ -42,6 +49,11 @@ button {
   background-color: $primary-color;
   color: $just-white;
   margin: 20px 0;
+}
+.button-terciary {
+  color: $primary-color;
+  margin: 20px 0;
+  font-weight: 600;
 }
 
 label {

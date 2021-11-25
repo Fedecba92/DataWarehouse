@@ -233,41 +233,86 @@ header {
     border-radius: 50%;
     margin: 4px; }
 
-.contact__add {
+.contact-add {
   display: flex;
-  flex-direction: column; }
-  .contact__add .contact__tittle--container {
-    background-color: #1d72c2;
-    width: 100%;
-    height: 7rem; }
-    .contact__add .contact__tittle--container .contact__tittle {
-      color: #ffffff;
-      margin: 1rem; }
-  .contact__add .contact__form {
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; }
+  .contact-add .contact-add__container {
     display: flex;
-    justify-content: center; }
-    .contact__add .contact__form .contact__mandatory--data {
+    flex-direction: column;
+    width: 100%;
+    max-width: 1215px; }
+    .contact-add .contact-add__container .contact__tittle--container {
+      background-color: #1d72c2;
+      width: 100%;
+      height: 7rem; }
+      .contact-add .contact-add__container .contact__tittle--container .contact__tittle {
+        color: #ffffff;
+        margin: 1rem; }
+    .contact-add .contact-add__container .contact__form {
+      padding: 0 21.5px;
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #ffffff; }
+      .contact-add .contact-add__container .contact__form .contact__mandatory--data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border: 4px solid #0683f9;
+        border-radius: 4px;
+        height: 8rem;
+        transform: translateY(-40px);
+        background-color: #ffffff;
+        width: 100%; }
+        .contact-add .contact-add__container .contact__form .contact__mandatory--data .avatar-container {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin: 4px;
+          position: relative; }
+          .contact-add .contact-add__container .contact__form .contact__mandatory--data .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%; }
+          .contact-add .contact-add__container .contact__form .contact__mandatory--data .avatar-container .camera-icon {
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-color: #0683f9;
+            border-radius: 50%;
+            border: 1px solid #ffffff;
+            bottom: 0;
+            right: 0;
+            cursor: pointer; }
+            .contact-add .contact-add__container .contact__form .contact__mandatory--data .avatar-container .camera-icon svg {
+              width: 100%;
+              height: 100%;
+              padding: 1px; }
+        .contact-add .contact-add__container .contact__form .contact__mandatory--data input {
+          border: 1px solid #1d72c2;
+          border-radius: 4px;
+          width: 190px;
+          font-size: 12px; }
+      .contact-add .contact-add__container .contact__form .form-group {
+        display: flex;
+        justify-content: space-around; }
+    .contact-add .contact-add__container .action-container {
+      display: grid;
+      grid-template: 1fr / 0.75fr 1.25fr;
       align-items: center;
-      border: 2px solid #0683f9;
-      border-radius: 4px;
-      height: 8rem;
-      transform: translateY(-40px);
-      background-color: #ffffff;
-      width: 90%; }
-      .contact__add .contact__form .contact__mandatory--data .avatar {
-        vertical-align: middle;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin: 4px; }
-      .contact__add .contact__form .contact__mandatory--data input {
-        border: 1px solid #1d72c2;
-        border-radius: 4px; }
-        .contact__add .contact__form .contact__mandatory--data input ::placeholder {
-          font-size: 2px; }
+      width: 300px;
+      margin-left: 74%; }
 
 * {
   box-sizing: border-box;
@@ -281,6 +326,12 @@ input {
   outline: none;
   border-radius: 3px;
   border: 1px solid #e8e8e8; }
+
+.select-input {
+  width: 190px;
+  height: 35.5px;
+  border: 1px solid #c6cacc;
+  border-radius: 3px; }
 
 button {
   width: 100%;
@@ -300,6 +351,11 @@ button {
   background-color: #1d72c2;
   color: #ffffff;
   margin: 20px 0; }
+
+.button-terciary {
+  color: #1d72c2;
+  margin: 20px 0;
+  font-weight: 600; }
 
 label {
   display: block;
