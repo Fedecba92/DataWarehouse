@@ -221,8 +221,8 @@ header {
         background-color: #1cc1f5;
         border-radius: 25px; }
   .table__container .table__body--row:nth-child(3) .meter__fill {
-    width: 75%;
-    background-color: #ffc700; }
+    background-color: #ffc700;
+    animation: progress-bar 2s ease forwards; }
   .table__container .table__body--row:nth-child(4) .meter__fill {
     width: 100%;
     background-color: #de0028; }
@@ -234,7 +234,7 @@ header {
     margin: 4px; }
 
 .contact-add {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -306,7 +306,8 @@ header {
           font-size: 12px; }
       .contact-add .contact-add__container .contact__form .form-group {
         display: flex;
-        justify-content: space-around; }
+        justify-content: space-around;
+        flex-wrap: wrap; }
     .contact-add .contact-add__container .action-container {
       display: grid;
       grid-template: 1fr / 0.75fr 1.25fr;
@@ -315,7 +316,7 @@ header {
       margin-left: 74%; }
 
 .contact-delete {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -356,6 +357,42 @@ header {
         color: #ffffff;
         margin: 20px 0;
         font-weight: bold; }
+
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; }
+  .range-container .select-input--interes {
+    width: 70px; }
+  .range-container .range {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    height: 15px;
+    width: 235px;
+    position: relative; }
+    .range-container .range__item {
+      height: 100%;
+      width: 100%;
+      border: 1px solid #c6cacc;
+      cursor: pointer; }
+    .range-container .range__item:first-child {
+      border-radius: 5px 0 0 5px; }
+    .range-container .range__item:nth-child(4) {
+      border-radius: 0 5px 5px 0; }
+    .range-container .range__circle-select {
+      width: 25px;
+      height: 25px;
+      border-radius: 50px;
+      border: solid 1px #c6cacc;
+      position: absolute;
+      background-color: white;
+      top: -5px; }
+
+@keyframes progress-bar {
+  from {
+    width: 0%; }
+  to {
+    width: 75%; } }
 
 * {
   box-sizing: border-box;

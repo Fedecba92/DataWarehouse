@@ -153,8 +153,8 @@
   .table__body--row:nth-child(3) {
     .meter {
       &__fill {
-        width: 75%;
         background-color: $yellow-bg-color;
+        animation: progress-bar 2s ease forwards;
       }
     }
   }
@@ -176,7 +176,7 @@
   }
 }
 .contact-add {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -265,6 +265,7 @@
       .form-group {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
       }
     }
 
@@ -278,7 +279,7 @@
   }
 }
 .contact-delete {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -326,5 +327,55 @@
         font-weight: bold;
       }
     }
+  }
+}
+
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .select-input--interes {
+    width: 70px;
+  }
+
+  .range {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    height: 15px;
+    width: 235px;
+    position: relative;
+
+    &__item {
+      height: 100%;
+      width: 100%;
+      border: 1px solid $grey-border-color;
+      cursor: pointer;
+    }
+    &__item:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+    &__item:nth-child(4) {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &__circle-select {
+      width: 25px;
+      height: 25px;
+      border-radius: 50px;
+      border: solid 1px $grey-border-color;
+      position: absolute;
+      background-color: white;
+      top: -5px;
+    }
+  }
+}
+
+@keyframes progress-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 75%;
   }
 }
