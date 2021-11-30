@@ -234,7 +234,7 @@ header {
     margin: 4px; }
 
 .contact-add {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -313,6 +313,49 @@ header {
       align-items: center;
       width: 300px;
       margin-left: 74%; }
+
+.contact-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; }
+  .contact-delete .contact-delete__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 339px;
+    height: 303px;
+    background-color: #ffffff;
+    border-radius: 5px; }
+    .contact-delete .contact-delete__container h4 {
+      margin: 20px;
+      text-align: center;
+      font-weight: lighter; }
+    .contact-delete .contact-delete__container img {
+      width: 150px;
+      height: 150px; }
+    .contact-delete .contact-delete__container .action-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%; }
+      .contact-delete .contact-delete__container .action-container .button-terciary {
+        width: 8rem;
+        border: 1px solid #1d72c2;
+        color: #0683f9;
+        font-weight: lighter; }
+      .contact-delete .contact-delete__container .action-container .button-secondary {
+        width: 8rem;
+        background-color: #de0028;
+        color: #ffffff;
+        margin: 20px 0;
+        font-weight: bold; }
 
 * {
   box-sizing: border-box;
