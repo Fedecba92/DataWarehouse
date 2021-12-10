@@ -1,0 +1,67 @@
+[
+    {
+        "name":"juan carlos perez",
+        "mail":"juancarlosPerez@gmail.com",
+        "country":{
+            "name":"argentina",
+            "region":"latam"
+        },
+        "company":"naranjaX",
+        "position":"backend developer",
+        "preferredChannel":{
+            "instragram":"@juancaperez",
+            "whatsapp":"+5493512334455"
+        },
+        "interest":95,
+        "avatar":"https://images.pexels.com/photos/10417389/pexels-photo-10417389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "name":"camila soledad pantó",
+        "mail":"camilapanto123@gmail.com",
+        "country":{
+            "name":"argentina",
+            "region":"latam"
+        },
+        "company":"naranjaX",
+        "position":"backend developer",
+        "preferredChannel":{
+            "instragram":"@juancaperez",
+            "whatsapp":"+5493512334455"
+        },
+        "interest":95,
+        "avatar":"https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "name":"agustín emanuel soria",
+        "mail":"agustinesoria@gmail.com",
+        "country":{
+            "name":"argentina",
+            "region":"latam"
+        },
+        "company":"naranjaX",
+        "position":"backend developer",
+        "preferredChannel":{
+            "instragram":"@juancaperez",
+            "whatsapp":"+5493512334455"
+        },
+        "interest":95,
+        "avatar":"https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    },
+    {
+        "name":"denver steven soria",
+        "mail":"denver-steven@gmail.com",
+        "country":{
+            "name":"argentina",
+            "region":"latam"
+        },
+        "company":"naranjaX",
+        "position":"backend developer",
+        "preferredChannel":{
+            "instragram":"@juancaperez",
+            "whatsapp":"+5493512334455"
+        },
+        "interest":95,
+        "avatar":"https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    }
+
+]

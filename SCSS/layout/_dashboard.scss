@@ -7,7 +7,15 @@
 .bar-control {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  .page-title {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
   .bar-control__search {
     display: flex;
@@ -47,6 +55,7 @@
 
   .bar-control__up {
     display: flex;
+    justify-content: end;
     width: 50%;
     .bar-control__button--add {
       border-radius: 3px;
@@ -78,7 +87,8 @@
   }
 }
 .table__container {
-  width: 90%;
+  width: 100%;
+  max-width: 1440px;
   border: 1px solid $grey-color;
   margin: 50px auto;
 
@@ -90,6 +100,7 @@
   .table__body--row {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr 1fr;
+    padding: 0 10px;
   }
   .table__body--row {
     &:hover {
@@ -100,8 +111,10 @@
   .table__header,
   .table__item {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 10px;
+    text-transform: capitalize;
   }
   .table__header {
     border-bottom: 1px solid $grey-color;
@@ -112,8 +125,6 @@
     }
   }
   .table__item {
-    padding: 10px;
-
     input {
       box-shadow: 0 0 2px rgb(129, 126, 126);
       border: 1px solid $grey-color;
@@ -171,12 +182,13 @@
     vertical-align: middle;
     width: 30px;
     height: 30px;
+    object-fit: cover;
     border-radius: 50%;
     margin: 4px;
   }
 }
 .contact-add {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100vw;
