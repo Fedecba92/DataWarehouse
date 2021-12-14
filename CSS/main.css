@@ -200,6 +200,10 @@ header {
     text-transform: capitalize; }
   .table__container .table__header {
     border-bottom: 1px solid #e8e8e8; }
+    .table__container .table__header .arrows-icon {
+      transition: all 250ms ease; }
+    .table__container .table__header .arrows-icon--active {
+      transform: rotate(180deg); }
     .table__container .table__header input {
       box-shadow: 0 0 2px #817e7e;
       border: 1px solid #e8e8e8; }

@@ -1,33 +1,62 @@
 // import { orderByName } from "./helpers/operators";
 
 //variables
+let dataOrder;
 const dashboardContainer = document.querySelector('.table__container');
-const urlContacts = '../assets/data/contactos.json';
+const alphaOrderByName = document.querySelector('#alpha-order-by-name');
+const alphaOrderByCountry = document.querySelector('#alpha-order-by-country');
+const alphaOrderByCompany= document.querySelector('#alpha-order-by-company');
+const alphaOrderByPosition= document.querySelector('#alpha-order-by-position');
+const alphaOrderByInterest = document.querySelector('#alpha-order-by-interest');
+const urlContacts = 'https://run.mocky.io/v3/9e5bcbd0-2741-4351-8546-a7adadad3a12';
 
-console.log(dashboardContainer);
+console.log(dashboardContainer)
 
 //funciones
 const getContacts = (url) =>{
     fetch(url)
         .then( resp => resp.json() )
-        .then( contacts => printRows(contacts) );
+        .then( contacts => {
+            printRows(contacts);
+            dataOrder = contacts;
+        });
 }
+
+const orderBy = (arrayContacts, property, direction) => {
+
+    if(direction){
+        return arrayContacts.sort(function (a, b) {
+
+            if (a[property].toLowerCase() > b[property].toLowerCase()) {
+              return 1;
+            }
+            if (a[property].toLowerCase() < b[property].toLowerCase()) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+    } else{
+        return arrayContacts.sort(function (a, b) {
+
+            if (a[property].toLowerCase() < b[property].toLowerCase()) {
+              return 1;
+            }
+            if (a[property].toLowerCase() > b[property].toLowerCase()) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+    }
+} 
 
 const printRows = (data) =>{
 
-    // const dataOrder = orderByName(data);
-    const dataOrder = data.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1;
-        }
-        if (a.name < b.name) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      });
 
-    dataOrder.forEach( el => {
+   
+
+    data.forEach( el => {
         
         const preferredChannel = Object.keys(el.preferredChannel);
 
@@ -61,7 +90,28 @@ const printRows = (data) =>{
 
 }
 
+const cleanDashboard = () => {
+
+    while (dashboardContainer.children.length > 1){
+        dashboardContainer.removeChild(dashboardContainer.lastChild);
+      }
+}
+
 //eventos
+alphaOrderByName.addEventListener('click', (e)=>{
+    if(!alphaOrderByName.classList.contains('arrows-icon--active')){
+        console.log('tiene la clase active');
+        alphaOrderByName.classList.add('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'name', true));
+    }else{
+        alphaOrderByName.classList.remove('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'name', false));
+    }
+
+});
+
 
 
 

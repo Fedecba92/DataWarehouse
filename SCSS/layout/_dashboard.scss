@@ -119,6 +119,13 @@
   .table__header {
     border-bottom: 1px solid $grey-color;
 
+    .arrows-icon {
+      transition: all 250ms ease;
+    }
+    .arrows-icon--active {
+      transform: rotate(180deg);
+    }
+
     input {
       box-shadow: 0 0 2px rgb(129, 126, 126);
       border: 1px solid $grey-color;
