@@ -8,7 +8,7 @@ const alphaOrderByCountry = document.querySelector('#alpha-order-by-country');
 const alphaOrderByCompany= document.querySelector('#alpha-order-by-company');
 const alphaOrderByPosition= document.querySelector('#alpha-order-by-position');
 const alphaOrderByInterest = document.querySelector('#alpha-order-by-interest');
-const urlContacts = 'https://run.mocky.io/v3/9e5bcbd0-2741-4351-8546-a7adadad3a12';
+const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
 
 console.log(dashboardContainer)
 
@@ -108,6 +108,49 @@ alphaOrderByName.addEventListener('click', (e)=>{
         alphaOrderByName.classList.remove('arrows-icon--active');
         cleanDashboard();
         printRows(orderBy(dataOrder, 'name', false));
+    }
+
+});
+
+// alphaOrderByCountry.addEventListener('click', (e)=>{
+//     if(!alphaOrderByCountry.classList.contains('arrows-icon--active')){
+//         console.log('tiene la clase active');
+//         alphaOrderByCountry.classList.add('arrows-icon--active');
+//         cleanDashboard();
+//         printRows(orderBy(dataOrder, 'country.name', true));
+//     }else{
+//         alphaOrderByCountry.classList.remove('arrows-icon--active');
+//         cleanDashboard();
+//         printRows(orderBy(dataOrder, 'country.name', false));
+//     }
+
+// })
+
+
+alphaOrderByCompany.addEventListener('click', (e)=>{
+    if(!alphaOrderByCompany.classList.contains('arrows-icon--active')){
+        console.log('tiene la clase active');
+        alphaOrderByCompany.classList.add('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'company', true));
+    }else{
+        alphaOrderByCompany.classList.remove('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'company', false));
+    }
+
+});
+
+alphaOrderByPosition.addEventListener('click', (e)=>{
+    if(!alphaOrderByPosition.classList.contains('arrows-icon--active')){
+        console.log('tiene la clase active');
+        alphaOrderByPosition.classList.add('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'position', true));
+    }else{
+        alphaOrderByPosition.classList.remove('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, 'position', false));
     }
 
 });
