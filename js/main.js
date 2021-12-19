@@ -8,9 +8,11 @@ const alphaOrderByCountry = document.querySelector('#alpha-order-by-country');
 const alphaOrderByCompany= document.querySelector('#alpha-order-by-company');
 const alphaOrderByPosition= document.querySelector('#alpha-order-by-position');
 const alphaOrderByInterest = document.querySelector('#alpha-order-by-interest');
+const mainCheckbox = document.querySelector('#main-checkbox');
+
 const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
 
-console.log(dashboardContainer)
+
 
 //funciones
 const getContacts = (url) =>{
@@ -27,35 +29,58 @@ const orderBy = (arrayContacts, property, direction) => {
     if(direction){
         return arrayContacts.sort(function (a, b) {
 
-            if (a[property].toLowerCase() > b[property].toLowerCase()) {
-              return 1;
-            }
-            if (a[property].toLowerCase() < b[property].toLowerCase()) {
-              return -1;
-            }
+            if( typeof property !== 'object'){
+                if (a[property].toLowerCase() > b[property].toLowerCase()) {
+                    return 1;
+                }
+                if (a[property].toLowerCase() < b[property].toLowerCase()) {
+                    return -1;
+                }
+            }else{
+                if (a[property[0]][property[1]].toLowerCase() > b[property[0]][property[1]].toLowerCase()) {
+                    return 1;
+                }
+                if (a[property[0]][property[1]].toLowerCase() < b[property[0]][property[1]].toLowerCase()) {
+                    return -1;
+                }
+            }    
             // a must be equal to b
             return 0;
           });
     } else{
         return arrayContacts.sort(function (a, b) {
 
-            if (a[property].toLowerCase() < b[property].toLowerCase()) {
-              return 1;
-            }
-            if (a[property].toLowerCase() > b[property].toLowerCase()) {
-              return -1;
-            }
+            if( typeof property !== 'object'){
+                if (a[property].toLowerCase() < b[property].toLowerCase()) {
+                    return 1;
+                }
+                if (a[property].toLowerCase() > b[property].toLowerCase()) {
+                    return -1;
+                }
+            }else{
+                if (a[property[0]][property[1]].toLowerCase() < b[property[0]][property[1]].toLowerCase()) {
+                    return 1;
+                }
+                if (a[property[0]][property[1]].toLowerCase() > b[property[0]][property[1]].toLowerCase()) {
+                    return -1;
+                }
+            }    
             // a must be equal to b
             return 0;
           });
     }
 } 
 
+const orderByInterest = (arrayContacts, property, direction) => {
+    if(direction){ return arrayContacts.sort((a,b) => b[property] - a[property]);}
+    else{
+        return arrayContacts.sort((a,b) => a[property] - b[property]);
+    }
+}
+
 const printRows = (data) =>{
-
-
-   
-
+    
+    console.log('onPrintRows', data);
     data.forEach( el => {
         
         const preferredChannel = Object.keys(el.preferredChannel);
@@ -65,7 +90,7 @@ const printRows = (data) =>{
 
         newRow.innerHTML = `
     
-            <div class="table__item"><input type="checkbox" ></div>
+            <div class="table__item"><input class="dash-checkbox" type="checkbox"></div>
             <div class="table__item"><img src=${el.avatar} alt="Avatar" class="avatar">${ el.name }</div>
             <div class="table__item">${ el.country.name }</div>
             <div class="table__item">${ el.company }</div>
@@ -97,6 +122,28 @@ const cleanDashboard = () => {
       }
 }
 
+
+const checkAll = (state) => {
+    const allCheckbox = document.querySelectorAll('.dash-checkbox');
+    const arrayCheckbox = [ ...allCheckbox ];
+    
+    if(state){
+        arrayCheckbox.forEach((element)=>{
+            console.log(element);
+            element.setAttribute('checked','true');
+            console.log(element.getAttribute('checked'));
+        })
+    } else{
+        arrayCheckbox.forEach((element)=>{
+           
+            element.removeAttribute('checked');
+
+        })
+    }
+    
+}
+
+
 //eventos
 alphaOrderByName.addEventListener('click', (e)=>{
     if(!alphaOrderByName.classList.contains('arrows-icon--active')){
@@ -112,19 +159,19 @@ alphaOrderByName.addEventListener('click', (e)=>{
 
 });
 
-// alphaOrderByCountry.addEventListener('click', (e)=>{
-//     if(!alphaOrderByCountry.classList.contains('arrows-icon--active')){
-//         console.log('tiene la clase active');
-//         alphaOrderByCountry.classList.add('arrows-icon--active');
-//         cleanDashboard();
-//         printRows(orderBy(dataOrder, 'country.name', true));
-//     }else{
-//         alphaOrderByCountry.classList.remove('arrows-icon--active');
-//         cleanDashboard();
-//         printRows(orderBy(dataOrder, 'country.name', false));
-//     }
+alphaOrderByCountry.addEventListener('click', (e)=>{
+    if(!alphaOrderByCountry.classList.contains('arrows-icon--active')){
+        console.log('tiene la clase active');
+        alphaOrderByCountry.classList.add('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, ['country','name'], true));
+    }else{
+        alphaOrderByCountry.classList.remove('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderBy(dataOrder, ['country','name'], false));
+    }
 
-// })
+})
 
 
 alphaOrderByCompany.addEventListener('click', (e)=>{
@@ -152,11 +199,45 @@ alphaOrderByPosition.addEventListener('click', (e)=>{
         cleanDashboard();
         printRows(orderBy(dataOrder, 'position', false));
     }
+});
+
+alphaOrderByInterest.addEventListener('click', (e)=>{
+    console.log(dataOrder);
+    if(!alphaOrderByInterest.classList.contains('arrows-icon--active')){
+        console.log('tiene la clase active');
+        alphaOrderByInterest.classList.add('arrows-icon--active');
+        cleanDashboard();
+        printRows(orderByInterest(dataOrder, 'interest', true));
+    }else{
+        alphaOrderByInterest.classList.remove('arrows-icon--active');
+        cleanDashboard();
+        printRows( orderByInterest(dataOrder, 'interest', false));
+    }
+});
+
+mainCheckbox.addEventListener('click', (e) => {
+    
+    console.log(e.target.checked);
+    if(e.target.checked){
+        checkAll(true)
+    }
+    else{
+        checkAll(false)
+    }
+})
+
+
+document.addEventListener('DOMContentLoaded' , () => {
+    
+    //ejecuciones inmediatas
+    getContacts(urlContacts);
 
 });
 
 
 
 
-//ejecuciones inmediatas
-getContacts(urlContacts);
+
+
+
+

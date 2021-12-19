@@ -1,13 +1,8 @@
 @import "./abstracts/variables";
+@import "./base/reset";
 @import "./base/base";
 @import "./layout/navigation";
 @import "./layout/dashboard";
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html {
   font-family: "Open-sans", sans-serif;

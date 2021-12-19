@@ -1,4 +1,9 @@
 /*__ Colours __*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
 /*NAVIGATION STYLES START HERE*/
 header {
   background-color: #1d72c2;
@@ -407,11 +412,6 @@ header {
     width: 0%; }
   to {
     width: 75%; } }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
 
 html {
   font-family: "Open-sans", sans-serif; }
