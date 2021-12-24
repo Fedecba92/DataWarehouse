@@ -1,8 +1,14 @@
+/*abstracts*/
 @import "./abstracts/variables";
+/*bases*/
 @import "./base/reset";
 @import "./base/base";
+/*layouts*/
 @import "./layout/navigation";
 @import "./layout/dashboard";
+
+/*pages*/
+@import "./pages/companies";
 
 html {
   font-family: "Open-sans", sans-serif;

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     
 </head>
 <body>
@@ -14,7 +14,7 @@
         <input type="checkbox" class="nav-toggle" id="nav-toggle">
         <nav>
             <ul>
-            <li><a href="./index.html">Contactos</a></li>
+            <li><a href="../index.html">Contactos</a></li>
             <li><a href="./pages/companies.html">Compañias</a></li>
             <li><a href="#">Usuarios</a></li>
             <li><a href="#">Región/Ciudad</a></li></ul>
@@ -27,7 +27,7 @@
         
 
         <section class="bar-control">
-            <h2 class="page-title">Contactos</h2>
+            <h2 class="page-title">Compañías</h2>
             <article class="bar-control__search">
                     <div class="input-group">
                         <input 
@@ -40,85 +40,57 @@
                 </button>
             </article>
             <article class="bar-control__up">
-                <button></button>
-                <select name="" id="" >
-                    <option value="" selected disabled>Exportar contactos</option>
-                    <option value="">Exportar seleccionados</option>
-                    <option value="">Todos los filtrados</option>
-                </select>
-                <button class="bar-control__button--add">Agregar contacto</button>
+                
+                <button class="bar-control__button--add">Agregar compañía</button>
 
             </article>
         </section>
 
         <section class="table__container">
 
-            <article class="table__header--row">
+            <article class="companies-table__header--row">
 
-                <div class="table__header"><input class="checkbox" type="checkbox" id="main-checkbox"></div>
-                <div class="table__header">Contacto <svg class="arrows-icon" id="alpha-order-by-name" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
-                <div class="table__header">País/Región <svg class="arrows-icon" id="alpha-order-by-country" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
-                <div class="table__header">Compañía <svg class="arrows-icon" id="alpha-order-by-company" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
-                <div class="table__header">Cargo <svg class="arrows-icon" id="alpha-order-by-position" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
-                <div class="table__header">Canal preferido</div>
-                <div class="table__header">Interés <svg class="arrows-icon" id="alpha-order-by-interest" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
+                <div class="table__header"><input type="checkbox" id="main-checkbox"></div>
+                <div class="table__header">Compañía <svg class="arrows-icon" id="alpha-order-by-name" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
+                <div class="table__header">Direccion </div>
+                <div class="table__header">Email </div>
+                <div class="table__header">Ciudad <svg class="arrows-icon" id="alpha-order-by-position" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
                 <div class="table__header">Acciones</div>
 
             </article>
 
-            <!-- <article class="table__body--row">
+            <article class="companies-table__body--row">
 
                 <div class="table__item"><input type="checkbox" ></div>
-                <div class="table__item"><img src="./assets/images/img_avatar.png" alt="Avatar" class="avatar">Agustin Emanuel Soria</div>
-                <div class="table__item">Argentina</div>
-                <div class="table__item">Acámica</div>
-                <div class="table__item">Developer</div>
-                <div class="table__item">
-                    <div class="item__chip">WathsApp</div>
-                </div>
-                <div class="table__item">
-                    <span class="item__percent">25%</span>
-                    <div class="meter">
-                        <div class="meter__fill"></div>        
-                    </div>
-                </div>
-                <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
-            </article>
-
-            <article class="table__body--row">
-
-                <div class="table__item"><input type="checkbox" ></div>
-                <div class="table__item"><img src="./assets/images/img_avatar.png" alt="Avatar" class="avatar">Agustin Emanuel Soria</div>
-                <div class="table__item">Argentina</div>
-                <div class="table__item">Acámica</div>
-                <div class="table__item">Developer</div>
-                <div class="table__item"></div>
-                <div class="table__item">
-                    <span class="item__percent">75%</span>
-                    <div class="meter">
-                        <div class="meter__fill"></div>        
-                    </div>
-                </div>
+                <div class="table__item">Netflix</div>
+                <div class="table__item">789 Hydepark</div>
+                <div class="table__item">netflixs.a@netflix.com</div>
+                <div class="table__item">Londres</div>
                 <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
                 
-
             </article>
-                
-            <article class="table__body--row">
+
+            <article class="companies-table__body--row">
+
                 <div class="table__item"><input type="checkbox" ></div>
-                <div class="table__item"><img src="./assets/images/img_avatar.png" alt="Avatar" class="avatar">Agustin Emanuel Soria</div>
-                <div class="table__item">Argentina</div>
-                <div class="table__item">Acámica</div>
-                <div class="table__item">Developer</div>
-                <div class="table__item"></div>
-                <div class="table__item">
-                    <span class="item__percent">100%</span>
-                    <div class="meter">
-                        <div class="meter__fill"></div>        
-                    </div>
-                </div>
-                <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>  
-            </article>     -->
+                <div class="table__item">Netflix</div>
+                <div class="table__item">789 Hydepark</div>
+                <div class="table__item">netflixs.a@netflix.com</div>
+                <div class="table__item">Londres</div>
+                <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                
+            </article>
+
+            <article class="companies-table__body--row">
+
+                <div class="table__item"><input type="checkbox" ></div>
+                <div class="table__item">Netflix</div>
+                <div class="table__item">789 Hydepark</div>
+                <div class="table__item">netflixs.a@netflix.com</div>
+                <div class="table__item">Londres</div>
+                <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                
+            </article>
 
             
 
@@ -265,7 +237,7 @@
     </main>
 
 
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
 
 </body>
 </html>
