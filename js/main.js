@@ -129,26 +129,36 @@ const setCheckboxProperties = () =>{
     const arrayCheckbox = [ ...allCheckbox ];
     arrayCheckbox.forEach( checkbox => {
 
-        
         checkbox.addEventListener('click', (e)=>{
+   
             if(e.target.checked){
-                console.log('checked true',checkbox.checked);
                 checkbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
+                checkbox.setAttribute('checked','true');
             }else{
-                console.log('checked false',checkbox.checked);
                 checkbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
+                checkbox.setAttribute('checked','false');
             }
 
-
-            if(arrayCheckbox.filter(checkbox2 => checkbox2.checked === false ).length === arrayCheckbox.length ){
-                console.log('entré al del medio');
-                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
-            }else if(arrayCheckbox.find( checkbox2 => !checkbox2.checked)){
-                console.log('entré al primero')
-                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/indeterminate_check_box_black_24dp.svg")';
-            } else{
-                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
-            }
+            // const arrayCheckboxOnfalse = arrayCheckbox.filter(checkbox2 => checkbox2.checked === false );
+            // console.log(arrayCheckboxOnfalse.length);
+            // const arrayCheckboxOnfalse = arrayCheckbox.filter(checkbox2 => checkbox2.checked === false );
+            // console.log(arrayCheckboxOnfalse.length);
+            // if(!arrayCheckboxOnfalse.length){
+            //     console.log(arrayCheckbox);
+            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
+            //     mainCheckbox.setAttribute('checked','true');
+            //     mainCheckbox.setAttribute('indeterminate','false');
+            // }else if( arrayCheckboxOnfalse.length === arrayCheckbox.length ){
+            //     console.log('entré al del medio',  arrayCheckboxOnfalse.length, arrayCheckbox.length);
+            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
+            //     mainCheckbox.setAttribute('checked','false');
+            //     mainCheckbox.setAttribute('indeterminate','false');
+            // }else if(arrayCheckboxOnfalse.length < arrayCheckbox.length){
+            //     console.log('entré al primero')
+            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/indeterminate_check_box_black_24dp.svg")';
+            //     mainCheckbox.setAttribute('checked','false');
+            //     mainCheckbox.setAttribute('indeterminate','true');
+            // }
 
         });
 
@@ -163,7 +173,7 @@ const checkAll = (state) => {
     
     if(state){
         arrayCheckbox.forEach((element)=>{
-            console.log(element);
+
             element.setAttribute('checked','true');
             element.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
             console.log(element.getAttribute('checked'));
@@ -171,8 +181,10 @@ const checkAll = (state) => {
     } else{
         arrayCheckbox.forEach((element)=>{
            
-            element.removeAttribute('checked');
+            // element.removeAttribute('checked');
+            element.setAttribute('checked','false');
             element.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
+            console.log(element.getAttribute('checked'));
 
         })
     }
