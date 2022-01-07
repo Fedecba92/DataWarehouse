@@ -109,10 +109,11 @@ const printRows = (data) =>{
         `;
 
         dashboardContainer.appendChild(newRow);
-        setCheckboxProperties(); // agarra los checkboxs y les agrega un evento a cada uno para pintarlos
+        
 
     });
 
+    setCheckboxProperties(); // agarra los checkboxs y les agrega un evento a cada uno para pintarlos
 
 }
 
@@ -123,14 +124,17 @@ const cleanDashboard = () => {
       }
 }
 
-const setCheckboxProperties = () =>{
+const setCheckboxProperties = async () =>{
 
     const allCheckbox = document.querySelectorAll('.dash-checkbox');
-    const arrayCheckbox = [ ...allCheckbox ];
+    const arrayCheckbox = await [ ...allCheckbox ];
+    console.log(arrayCheckbox);
     arrayCheckbox.forEach( checkbox => {
 
-        checkbox.addEventListener('click', (e)=>{
-   
+        checkbox.addEventListener('change', (e)=>{
+
+            console.log('estados del checkbox', e.target.checked, checkbox.checked);
+
             if(e.target.checked){
                 checkbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
                 checkbox.setAttribute('checked','true');
@@ -139,30 +143,33 @@ const setCheckboxProperties = () =>{
                 checkbox.setAttribute('checked','false');
             }
 
-            // const arrayCheckboxOnfalse = arrayCheckbox.filter(checkbox2 => checkbox2.checked === false );
-            // console.log(arrayCheckboxOnfalse.length);
-            // const arrayCheckboxOnfalse = arrayCheckbox.filter(checkbox2 => checkbox2.checked === false );
-            // console.log(arrayCheckboxOnfalse.length);
-            // if(!arrayCheckboxOnfalse.length){
-            //     console.log(arrayCheckbox);
-            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
-            //     mainCheckbox.setAttribute('checked','true');
-            //     mainCheckbox.setAttribute('indeterminate','false');
-            // }else if( arrayCheckboxOnfalse.length === arrayCheckbox.length ){
-            //     console.log('entré al del medio',  arrayCheckboxOnfalse.length, arrayCheckbox.length);
-            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
-            //     mainCheckbox.setAttribute('checked','false');
-            //     mainCheckbox.setAttribute('indeterminate','false');
-            // }else if(arrayCheckboxOnfalse.length < arrayCheckbox.length){
-            //     console.log('entré al primero')
-            //     mainCheckbox.style.backgroundImage = 'url("../../assets/icons/indeterminate_check_box_black_24dp.svg")';
-            //     mainCheckbox.setAttribute('checked','false');
-            //     mainCheckbox.setAttribute('indeterminate','true');
-            // }
+            const arrayCheckboxOnfalse = arrayCheckbox.filter(checkbox2 => checkbox2.checked === false );
+            console.log(arrayCheckboxOnfalse.length);
 
-        });
+            if(!arrayCheckboxOnfalse.length){
+                console.log(arrayCheckbox);
+                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
+                mainCheckbox.setAttribute('checked','true');
+                mainCheckbox.setAttribute('indeterminate','false');
+            }else if( arrayCheckboxOnfalse.length === arrayCheckbox.length ){
+                console.log('entré al del medio',  arrayCheckboxOnfalse.length, arrayCheckbox.length);
+                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
+                mainCheckbox.setAttribute('checked','false');
+                mainCheckbox.setAttribute('indeterminate','false');
+            }else if(arrayCheckboxOnfalse.length < arrayCheckbox.length){
+                console.log('entré al último')
+                mainCheckbox.style.backgroundImage = 'url("../../assets/icons/indeterminate_check_box_black_24dp.svg")';
+                mainCheckbox.setAttribute('checked','false');
+                mainCheckbox.setAttribute('indeterminate','true');
+                console.log(arrayCheckbox.length, arrayCheckboxOnfalse.length);
+            }else{
+                console.log('no hago nada');
+            }
+
+        }, true);
 
     });
+
 
 }
 
@@ -264,7 +271,9 @@ alphaOrderByInterest.addEventListener('click', (e)=>{
 });
 
 mainCheckbox.addEventListener('click', (e) => {
-    
+
+
+    //TODO: ver este state git
     console.log(e.target.checked);
     if(e.target.checked){
         mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_black_24dp.svg")';
@@ -277,13 +286,10 @@ mainCheckbox.addEventListener('click', (e) => {
 })
 
 
-document.addEventListener('DOMContentLoaded' , () => {
+document.addEventListener('DOMContentLoaded' , async () => {
     
     //ejecuciones inmediatas
-    
-    getContacts(urlContacts);
-    
-
+    await getContacts(urlContacts);
 
 
 });
