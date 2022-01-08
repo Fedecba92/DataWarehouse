@@ -105,6 +105,12 @@
   .table__body--row {
     &:hover {
       background-color: $grey-color;
+
+      .table__item--actions {
+        .icons-actions {
+          display: flex;
+        }
+      }
     }
   }
 
@@ -116,6 +122,32 @@
     padding: 10px;
     text-transform: capitalize;
   }
+  .table__item--actions {
+    justify-content: center;
+    position: relative;
+
+    .icons-actions {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $grey-color;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+
+      svg {
+        cursor: pointer;
+
+        &:hover {
+          fill: $primary-color;
+        }
+      }
+    }
+  }
+
   .table__header {
     border-bottom: 1px solid $grey-color;
 
@@ -162,26 +194,8 @@
 
       &__fill {
         height: 100%;
-        width: 25%;
-        background-color: $blue-bg-fill-color;
         border-radius: 25px;
-      }
-    }
-  }
-  .table__body--row:nth-child(3) {
-    .meter {
-      &__fill {
-        background-color: $yellow-bg-color;
-        animation: progress-bar 2s ease forwards;
-      }
-    }
-  }
-
-  .table__body--row:nth-child(4) {
-    .meter {
-      &__fill {
-        width: 100%;
-        background-color: $error-color;
+        animation: progress-bar 2s ease forwards reverse;
       }
     }
   }
@@ -405,10 +419,7 @@
 }
 
 @keyframes progress-bar {
-  from {
-    width: 0%;
-  }
   to {
-    width: 75%;
+    width: 0%;
   }
 }

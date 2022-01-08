@@ -203,6 +203,8 @@ header {
     padding: 0 10px; }
   .table__container .table__body--row:hover {
     background-color: #e8e8e8; }
+    .table__container .table__body--row:hover .table__item--actions .icons-actions {
+      display: flex; }
   .table__container .table__header,
   .table__container .table__item {
     display: flex;
@@ -210,6 +212,24 @@ header {
     align-items: center;
     padding: 10px;
     text-transform: capitalize; }
+  .table__container .table__item--actions {
+    justify-content: center;
+    position: relative; }
+    .table__container .table__item--actions .icons-actions {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #e8e8e8;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 15px; }
+      .table__container .table__item--actions .icons-actions svg {
+        cursor: pointer; }
+        .table__container .table__item--actions .icons-actions svg:hover {
+          fill: #1d72c2; }
   .table__container .table__header {
     border-bottom: 1px solid #e8e8e8; }
     .table__container .table__header .arrows-icon {
@@ -236,15 +256,8 @@ header {
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3); }
     .table__container .table__item .meter__fill {
       height: 100%;
-      width: 25%;
-      background-color: #1cc1f5;
-      border-radius: 25px; }
-  .table__container .table__body--row:nth-child(3) .meter__fill {
-    background-color: #ffc700;
-    animation: progress-bar 2s ease forwards; }
-  .table__container .table__body--row:nth-child(4) .meter__fill {
-    width: 100%;
-    background-color: #de0028; }
+      border-radius: 25px;
+      animation: progress-bar 2s ease forwards reverse; }
   .table__container .avatar {
     vertical-align: middle;
     width: 30px;
@@ -416,10 +429,8 @@ header {
     box-shadow: 0 0 2px rgba(129, 126, 126, 0.5); }
 
 @keyframes progress-bar {
-  from {
-    width: 0%; }
   to {
-    width: 75%; } }
+    width: 0%; } }
 
 /*pages*/
 .companies-table__header--row,

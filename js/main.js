@@ -12,6 +12,14 @@ const mainCheckbox = document.querySelector('#main-checkbox');
 
 const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
 
+/*animations objects*/
+const progressBarAnimation = {
+
+    from:'width:0%',
+    to:'width:75%'    
+
+}
+
 
 
 //funciones
@@ -104,16 +112,27 @@ const printRows = (data) =>{
                     <div class="meter__fill"></div>        
                 </div>
             </div>
-            <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+            <div class="table__item table__item--actions">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                
+                <div class="icons-actions">
+
+                    <svg id="contact-delete" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+
+                    <svg id="contact-edit" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                
+                </div>
+            </div>
 
         `;
 
         dashboardContainer.appendChild(newRow);
-        
 
     });
 
     setCheckboxProperties(); // agarra los checkboxs y les agrega un evento a cada uno para pintarlos
+    
+    setAnimateBar(data);
 
 }
 
@@ -122,6 +141,20 @@ const cleanDashboard = () => {
     while (dashboardContainer.children.length > 1){
         dashboardContainer.removeChild(dashboardContainer.lastChild);
       }
+}
+
+const setAnimateBar = ( data ) => {
+
+    const fills = document.getElementsByClassName('meter__fill');
+    const arrayFills = [...fills];
+
+    arrayFills.forEach( (fill, i) => {
+        fill.style.width =`${ data[i].interest }%`;
+        //TODO: fill.style.backgroundColor
+
+
+    });
+
 }
 
 const setCheckboxProperties = async () =>{
