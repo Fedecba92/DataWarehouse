@@ -147,10 +147,35 @@ const setAnimateBar = ( data ) => {
 
     const fills = document.getElementsByClassName('meter__fill');
     const arrayFills = [...fills];
-
+console.log(arrayFills);
     arrayFills.forEach( (fill, i) => {
         fill.style.width =`${ data[i].interest }%`;
         //TODO: fill.style.backgroundColor
+
+        // switch (x) {
+        //     case 0:
+        //       text = "Off";
+        //       break;
+        //     case 1:
+        //       text = "On";
+        //       break;
+        //     default:
+        //       text = "No value found";
+        //   }
+        if(fill.style.width === '100%'){
+            fill.style.backgroundColor='blue'
+        }
+        else if(fill.style.width === '95%'){
+            fill.style.backgroundColor ='red'
+        }else if(fill.style.width === '75%'){
+            fill.style.backgroundColor='orange'
+        }else if(fill.style.width ==='50%'){
+            fill.style.backgroundColor='yellow'
+        }else if(fill.style.width ==='25%'){
+            fill.style.backgroundColor='blue'
+        }else if(fill.style.width === '0%'){
+            fill.style.backgroundColor='gray'
+        }
 
 
     });
