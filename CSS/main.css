@@ -283,12 +283,21 @@ header {
     width: 100%;
     max-width: 1215px; }
     .contact-add .contact-add__container .contact__tittle--container {
+      display: flex;
+      justify-content: space-between;
       background-color: #1d72c2;
       width: 100%;
       height: 7rem; }
       .contact-add .contact-add__container .contact__tittle--container .contact__tittle {
         color: #ffffff;
         margin: 1rem; }
+      .contact-add .contact-add__container .contact__tittle--container .contact__close-icon {
+        display: block;
+        margin: 1rem;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        background-image: url("/assets/icons/close_black_24dp.svg"); }
     .contact-add .contact-add__container .contact__form {
       padding: 0 21.5px;
       display: flex;

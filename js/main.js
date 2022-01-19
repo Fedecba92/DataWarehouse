@@ -9,17 +9,12 @@ const alphaOrderByCompany= document.querySelector('#alpha-order-by-company');
 const alphaOrderByPosition= document.querySelector('#alpha-order-by-position');
 const alphaOrderByInterest = document.querySelector('#alpha-order-by-interest');
 const mainCheckbox = document.querySelector('#main-checkbox');
+const addContact = document.querySelector('.bar-control__button--add');
+const addContactModal = document.querySelector('.contact-add');
+const closeAddModalButton = document.querySelector('.contact__close-icon');
+
 
 const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
-
-/*animations objects*/
-const progressBarAnimation = {
-
-    from:'width:0%',
-    to:'width:75%'    
-
-}
-
 
 
 //funciones
@@ -150,18 +145,8 @@ const setAnimateBar = ( data ) => {
 console.log(arrayFills);
     arrayFills.forEach( (fill, i) => {
         fill.style.width =`${ data[i].interest }%`;
-        //TODO: fill.style.backgroundColor
+        //TODO: trabajar por rangos < >
 
-        // switch (x) {
-        //     case 0:
-        //       text = "Off";
-        //       break;
-        //     case 1:
-        //       text = "On";
-        //       break;
-        //     default:
-        //       text = "No value found";
-        //   }
         if(fill.style.width === '100%'){
             fill.style.backgroundColor='blue'
         }
@@ -341,7 +326,16 @@ mainCheckbox.addEventListener('click', (e) => {
         mainCheckbox.style.backgroundImage = 'url("../../assets/icons/check_box_outline_blank_black_24dp.svg")';
         checkAll(false)
     }
-})
+});
+
+
+addContact.addEventListener('click', ()=>{
+    addContactModal.style.display = 'flex';
+});
+
+closeAddModalButton.addEventListener('click', ()=>{
+    addContactModal.style.display = 'none';
+});
 
 
 document.addEventListener('DOMContentLoaded' , async () => {

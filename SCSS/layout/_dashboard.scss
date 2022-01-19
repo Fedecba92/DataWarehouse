@@ -227,6 +227,8 @@
     max-width: 1215px;
 
     .contact__tittle--container {
+      display: flex;
+      justify-content: space-between;
       background-color: $primary-color;
       width: 100%;
       height: 7rem;
@@ -234,6 +236,15 @@
       .contact__tittle {
         color: $just-white;
         margin: 1rem;
+      }
+
+      .contact__close-icon {
+        display: block;
+        margin: 1rem;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        background-image: url("/assets/icons/close_black_24dp.svg");
       }
     }
     .contact__form {
