@@ -342,9 +342,19 @@ header {
               height: 100%;
               padding: 1px; }
       .contact-add .contact-add__container .contact__form .form-group {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap; }
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 12px; }
+        .contact-add .contact-add__container .contact__form .form-group label {
+          display: block;
+          font-weight: bold;
+          font-size: 0.8rem;
+          margin-bottom: 10px; }
+          .contact-add .contact-add__container .contact__form .form-group label::after {
+            content: "";
+            color: #1d72c2;
+            font-weight: bold;
+            margin-left: 3px; }
     .contact-add .contact-add__container .action-container {
       display: grid;
       grid-template: 1fr / 0.75fr 1.25fr;

@@ -147,18 +147,16 @@ console.log(arrayFills);
         fill.style.width =`${ data[i].interest }%`;
         //TODO: trabajar por rangos < >
 
-        if(fill.style.width === '100%'){
-            fill.style.backgroundColor='blue'
+        if(data[i].interest >= 80 ){
+            fill.style.backgroundColor='red'
         }
-        else if(fill.style.width === '95%'){
-            fill.style.backgroundColor ='red'
-        }else if(fill.style.width === '75%'){
-            fill.style.backgroundColor='orange'
-        }else if(fill.style.width ==='50%'){
+        else if(data[i].interest >= 70){
+            fill.style.backgroundColor ='orange'
+        }else if(data[i].interest >= 45){
             fill.style.backgroundColor='yellow'
-        }else if(fill.style.width ==='25%'){
+        }else if(data[i].interest > 0){
             fill.style.backgroundColor='blue'
-        }else if(fill.style.width === '0%'){
+        }else if(data[i].interest === 0){
             fill.style.backgroundColor='gray'
         }
 

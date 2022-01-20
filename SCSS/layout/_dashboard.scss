@@ -307,9 +307,23 @@
       }
 
       .form-group {
-        display: flex;
-        justify-content: space-around;
+        display: inline-flex;
         flex-wrap: wrap;
+        gap: 12px;
+
+        label {
+          display: block;
+          font-weight: bold;
+          font-size: 0.8rem;
+          margin-bottom: 10px;
+
+          &::after {
+            content: "";
+            color: $primary-color;
+            font-weight: bold;
+            margin-left: 3px;
+          }
+        }
       }
     }
 
