@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+.info-text {
+  font-size: 1rem;
+}
+
+.wrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.login-box {
+  background: #fff;
+  width: 300px;
+  height: 450px;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .input-addon {
+  margin-top: 1.5rem;
+}
+
+.form-element {
+  margin-top: 0.8rem;
+  height: 1.5rem;
+  border: 1px solid #d2d6de;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.form-element:focus {
+  outline: 1px solid #1d72c2;
+}
+
+.form-element::placeholder {
+  font-size: 0.8rem;
+}
+
+.form-element.is-submit {
+  height: 3rem;
+  font-size: 1rem;
+  line-height: normal;
+  background: #1d72c2;
+  color: #fff;
+}
+
+.input-addon {
+  display: flex;
+  align-items: center;
+}
+
+.input-addon > .form-element {
+  margin-top: 0;
+}
+
+.input-field {
+  flex: 1;
+}
+
+.input-addon-item {
+  width: 35px;
+  border-left: 0;
+  background: #fff;
+  color: #6a6b6d;
+}
