@@ -12,6 +12,11 @@ const mainCheckbox = document.querySelector('#main-checkbox');
 const addContact = document.querySelector('.bar-control__button--add');
 const addContactModal = document.querySelector('.contact-add');
 const closeAddModalButton = document.querySelector('.contact__close-icon');
+const addUserModal = document.querySelector('.wrapper');
+const closeAddUserModal = document.querySelector('.user__close-icon');
+
+
+
 
 
 const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
@@ -328,12 +333,25 @@ mainCheckbox.addEventListener('click', (e) => {
 
 
 addContact.addEventListener('click', ()=>{
-    addContactModal.style.display = 'flex';
+    if(document.title == "Home"){
+         addContactModal.style.display = 'flex';
+    }else if(document.title == "Users"){
+        addUserModal.style.display = 'flex';
+    }
+   
 });
 
 closeAddModalButton.addEventListener('click', ()=>{
     addContactModal.style.display = 'none';
 });
+
+// addContact.addEventListener('click', ()=>{
+//     addUserModal.style.display = 'flex';
+// });
+
+// closeAddUserModal.addEventListener('click', ()=>{
+//     addUserModal.style.display = 'none';
+// });
 
 
 document.addEventListener('DOMContentLoaded' , async () => {

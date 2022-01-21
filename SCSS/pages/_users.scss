@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
+.users-table__header--row,
+.users-table__body--row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  padding: 0 10px;
+}
 
 .info-text {
   font-size: 1rem;
@@ -24,6 +30,32 @@
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 20px;
+  .user__tittle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 2rem;
+
+    .user__close-icon {
+      display: block;
+      margin: 1rem;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      background-image: url("/assets/icons/close_black_24dp.svg");
+    }
+  }
+  .user__close-icon {
+    display: inline;
+    margin: 1rem;
+    color: black;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background-image: url("/assets/icons/close_black_24dp.svg");
+  }
 }
 
 .form-container {

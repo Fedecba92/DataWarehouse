@@ -48,24 +48,20 @@
 
         <section class="table__container">
 
-            <article class="companies-table__header--row">
+            <article class="users-table__header--row">
 
-                <div class="table__header"><input type="checkbox" id="main-checkbox"></div>
-                <div class="table__header">Compañía <svg class="arrows-icon" id="alpha-order-by-name" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
-                <div class="table__header">Direccion </div>
-                <div class="table__header">Email </div>
-                <div class="table__header">Ciudad <svg class="arrows-icon" id="alpha-order-by-position" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></div>
+                
+                <div class="table__header">Usuario </div>
+                <div class="table__header">Rol </div>
                 <div class="table__header">Acciones</div>
 
             </article>
 
-            <article class="companies-table__body--row">
+            <article class="users-table__body--row">
 
-                <div class="table__item"><input type="checkbox" ></div>
-                <div class="table__item">Netflix</div>
-                <div class="table__item">789 Hydepark</div>
-                <div class="table__item">netflixs.a@netflix.com</div>
-                <div class="table__item">Londres</div>
+               
+                <div class="table__item">jfedearnaudo</div>
+                <div class="table__item">Administrador</div>
                 <div class="table__item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e5e5e"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
                 
             </article>
@@ -75,10 +71,16 @@
             
        
 </section>
-
+<!-- ADD USER MODAL -->
 <div class="wrapper">
 	<div class="login-box">
-		<h3 class="info-text">Registro de usuarios</h3>
+        <div class="user__tittle-container">
+            
+            <h3 class="info-text">Registro de usuarios</h3>
+            <i class="user__close-icon"></i>
+        </div>
+        
+        
 		<form class="form-container" action="">
 			<div class="input-addon">
 				<input class="form-element input-field" placeholder="Nombre" type="text">
@@ -137,7 +139,7 @@
     </main>
 
 
-    <!-- <script src="./js/main.js"></script> -->
+    <script src="../js/main.js"></script>
 
 </body>
 </html>
