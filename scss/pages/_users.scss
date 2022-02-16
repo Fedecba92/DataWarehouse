@@ -32,7 +32,7 @@
 .login-box {
   background: #e8e8e8;
   border-radius: 10%;
-  width: 400px;
+  width: 600px;
   height: 550px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -72,6 +72,14 @@
 
 .form-container .input-addon {
   margin-top: 1.5rem;
+
+  small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+  }
 }
 
 .form-element {
@@ -88,6 +96,25 @@
 
 .form-element::placeholder {
   font-size: 0.8rem;
+}
+
+.error {
+  border: 1px solid $error-color;
+
+  &:focus,
+  &:invalid {
+    border: 1px solid $error-color;
+  }
+  &:focus:invalid {
+    border: 1px solid $error-color;
+  }
+}
+
+.success {
+  border: 1px solid $success-color;
+  &:focus {
+    border: 1px solid $success-color;
+  }
 }
 
 .form-element.is-submit {

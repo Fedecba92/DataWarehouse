@@ -43,7 +43,16 @@ const submit = (e) => {
             }
           }).then(res => res.json())
           .catch(error => console.error('Error:', error))
-          .then(response => console.log('Success:', response))
+          .then( response => {
+
+              console.log('server response', response);
+
+              if(response.ok){
+                localStorage.setItem('token',response.token);
+              }else{
+                  console.log(response.error, response.msg);
+              }
+          })
         
     }else{
         if(!validationResult.username){
