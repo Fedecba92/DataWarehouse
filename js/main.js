@@ -22,6 +22,12 @@ const closeAddUserModal = document.querySelector('.user__close-icon');
 const urlContacts = 'https://run.mocky.io/v3/305adb06-56ea-4b09-abf5-ef5b4028d9c8';
 
 
+suma = (num1,num2)=>{
+    num1+num2
+}
+
+suma(15,15);
+
 //funciones
 const getContacts = (url) =>{
     fetch(url)

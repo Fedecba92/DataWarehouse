@@ -1,7 +1,5 @@
 window.addEventListener('load',()=>{
 
-
-    //variables
     const newUserForm = document.getElementById('new-user-form');
     const name = document.getElementById('name');
     const rol = document.getElementById('rol');
@@ -9,121 +7,159 @@ window.addEventListener('load',()=>{
     const username = document.getElementById('username');
     const password = document.getElementById('password');
     const password2 = document.getElementById('repPassword');
-   
-
-
-    // console.log('nodo de formulario',newUserForm);
-    // objectValidator = {
-    //     emptyField:'',
-    //     email:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,      
-    
-    // }
-
+    const url = 'http://localhost:3000/api/auth/new';
 
     //funciones
-    //TODO: Crear una función que valide que el campo no está vacío
-    //TODO: Crear una función que valide que el mail es un mail válido
-    //TODO: Crear una función que valide que la contraseña tenga como mínimo 3 caracteres y un máximo de 255
-    //TODO: name solo pueden ser letras
+
     //TODO: username y password solo puede ser números y letras
-    
 
-    // const sendData = (e) =>{
-    //     e.preventDefault();
+    const formatField = {
+        passRange:function(value){
+            return (value.length >= 3 && value.length <= 255) ? true : false
+        },
+        justLetter:function(value){
+            const regex = /^[a-zA-Z\s]*$/;
+            return regex.test(value);
+        },
+        justAlphanumeric: function(value) {
+            const regex = /^[0-9a-zA-Z]+$/;
+            return regex.test(value);    
+        }
+    }    
 
-    //     console.log(e.target[0].value);
-    // }
-
-    const fieldEmptyValidator = value => value.length ? true : false;
-
-    const checkInputs = ()=> {
-        const nameValue = name.value.trim();
-        const rolValue= rol.value.trim();
-        const emailValue= email.value.trim();
-        const usernameValue=username.value.trim();
-        const passwordValue= password.value.trim();
-        const password2Value= password2.value.trim();
-
-
-
-        // if(usernameValue === '') {
-        //     setErrorFor(username, 'Username cannot be blank');
-        // } else {
-        //     setSuccessFor(username);
-        // }
-        
-        // if(emailValue === '') {
-        //     setErrorFor(email, 'Email cannot be blank');
-        // } else if (!isEmail(emailValue)) {
-        //     setErrorFor(email, 'Not a valid email');
-        // } else {
-        //     setSuccessFor(email);
-        // }
-        
-        // if(passwordValue === '') {
-        //     setErrorFor(password, 'Password cannot be blank');
-        // } else {
-        //     setSuccessFor(password);
-        // }
-        
-        // if(password2Value === '') {
-        //     setErrorFor(password2, 'Password2 cannot be blank');
-        // } else if(passwordValue !== password2Value) {
-        //     setErrorFor(password2, 'Passwords does not match');
-        // } else{
-        //     setSuccessFor(password2);
-        // }
+    const getFieldName = (input) => {
+        let name = input.name;
+        return name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
     }
     
-    const  setErrorFor = (input, message) =>{
-
-        // const formControl = input.parentElement;
-        // console.log(formControl);
-        // const small = formControl.querySelector('small');
-        // console.log(small);
-        // small.innerText = message;
-    }
-    
-    const   setSuccessFor =  (input) =>{
+    const showError = (input, message) => {
         const formControl = input.parentElement;
-        formControl.className = 'form-element success';
+        input.classList.add('error');
+        input.removeAttribute('placeholder');
+        formControl.children[2].style.display ='block';
+        formControl.children[2].innerText = message;
+    }
+    
+    const showSuccess = (input) => {
+        const formControl = input.parentElement;
+        input.classList.remove('error');
+        formControl.children[2].style.display ='none';
+    }
+
+    const checkRequired = (inputArr) => {
+
+        inputArr.forEach( input => {
+            if(input.value.trim() === '') {
+                showError(input, `${getFieldName(input)} cannot be empty`);
+            } else {
+                showSuccess(input);
+            }
+        });
     }
         
-    const isEmail = (email) => {
-        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-    };
+    function checkEmail(input) {
+        if(input.value.trim() !== ''){
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (re.test(input.value.trim())) {
+                showSuccess(input);
+            } else {
+                showError(input, 'Email is not valid');
+                input.value = "email@example/com";
+            }
+        }
+      }
+
+    //checkear passwords 
+    function checkPass( password, password2 ){
+        if(password.value.trim() === password2.value.trim()){
+            showSuccess(password2);
+        } else if(password2.value.trim()!=='') {
+            showError(password2, 'Password not match');
+        }
+    }
+
+    function checkPassRange(values){
+        values.forEach(el => {
+            
+            if( formatField.passRange(el.value) ){
+                showSuccess(el);
+            } else {
+                showError(el, 'La contraseña no puede tener menos de 3 caracteres o más de 255 caracteres');
+            }
+        });
+    }
+
+    function checkAlphanumeric(inputs) {
+
+        inputs.forEach( input => {
+            if (formatField.justAlphanumeric(input.value.trim())) {
+                showSuccess(input);
+            } else {
+                showError(input, 'Solo letras y números');
+            }
+        });
+    }
+
+    function checkJustLetter(input) {
+        if (formatField.justLetter(input.value.trim()) 
+                && input.value.trim() !=='') {
+            showSuccess(input);
+        } else {
+            showError(input, 'Name no válido');
+        }
+    }
+    
+    
+
+
+    function checkError(array) {
+        return array.find( input => input.className.includes('error')) ? false : true;
+    }
+
+
+
+
 
     //eventos
     newUserForm.addEventListener('submit', e => {
         e.preventDefault();
-        console.log(e);
-
-        const arrayInputs = [...e.target];
-        arrayInputs.forEach( (input) => {
-
-            //validar campos vacíos
-            if(input.type !== 'submit'){
-                input.classList.remove('success'); 
-                input.classList.add(fieldEmptyValidator(input.value) ?'success':'error');
-                const small = document.createElement('small');
-                small.classList.add('error-display');
-                small.innerText = 'El campo está vació'
-                input.parentElement.appendChild(small);
+        checkJustLetter(name);
+        checkRequired([name, rol, email, username, password, password2]);
+        checkEmail(email);
+        checkPassRange([password, password2]);
+        checkPass( password, password2 );
+        checkAlphanumeric([username, password ]);
+        
+        //TODO: Hacer una función que recorra todos los campos y que compruebe si tienen una clase de error, si es así no hacer nada
+        //pero si todos los campos no tienen la clase de error, entonces hacer el fetch al server. 
+        
+        if(checkError([ name, rol, email, username, password, password2 ])){
+            console.log('entrando al fetch');
+            const data = {
+                name: name.value.trim(),
+                username: username.value.trim(),
+                roleId: rol.value.trim(),
+                email: email.value.trim(),
+                password: password.value.trim(),
+                phone:'+5493518997788'
             }
-           //validar email
-           if(input.type === 'email') {
-               input.classList.remove('success');
-               console.log(input.value);
-               input.classList.add(isEmail(input.value) ?'success':'error')
-           }
+
+            fetch( url , {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+              }).then(res => res.json())
+              .catch(error => console.error('Error:', error))
+              .then( response => {
+                  console.log('server response', response);
+              })
+
+        }else{
+            console.log('ejecutando con errores');
+        }
 
 
-        });
-
-        // checkInputs();
     });
-
-
-
-
 });
